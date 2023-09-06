@@ -6,38 +6,66 @@
  * @version 09.032023
  */
 
-public class MemoryRoot {
-    MemoryNode head;
-
-    public MemoryRoot(int size) {
+public class MemoryRoot 
+{
+    private MemoryNode head;
+    
+    /**
+     * constructor
+     * @param size
+     */
+    public MemoryRoot(int size) 
+    {
         head = new MemoryNode(size, 0);
     }
-
-
+    
+    /**
+     * getter function for head
+     * @return
+     */
+    public MemoryNode getHead()
+    {
+        return this.head;
+    }
+    
+    /**
+     * deletes data
+     * @param location to delete
+     */
     public void deleteData(int location) {
         MemoryNode nodeToRemove = getNodeAtLocation(location);
-        nodeToRemove.parent.abortChild(nodeToRemove);// can never be head cause
-        // theres always
-        // duplication of storage
+        // can't ever be head
+        nodeToRemove.getParent().abortChild(nodeToRemove); 
         head.collapse();
     }
 
-
-    public MemoryNode getNodeAtLocation(int location) {
+    /**
+     * gets node at location
+     * @param location to get node from
+     * @return the node
+     */
+    public MemoryNode getNodeAtLocation(int location) 
+    {
         MemoryNode pointer = head;
-        while (true) {
-            if (pointer.location == location) {
+        while (true) 
+        {
+            if (pointer.getLocation() == location) 
+            {
                 break;
             }
-            if (pointer.r == null || location < pointer.r.location) {
-                pointer = pointer.l;
+            if (pointer.getRightNode() == null || location < pointer
+                .getRightNode().getLocation()) 
+            {
+                pointer = pointer.getLeftNode();
             }
-            else {
-                pointer = pointer.r;
+            else 
+            {
+                pointer = pointer.getRightNode();
             }
         }
-        while (!pointer.dataNode) {
-            pointer = pointer.l;
+        while (!pointer.getDataNode()) 
+        {
+            pointer = pointer.getLeftNode();
         }
         return pointer;
     }
@@ -49,11 +77,12 @@ public class MemoryRoot {
      * @return a Handle that stores the location, and the size of the recently
      *         inserted data
      */
-    public Handle insertData(byte[] data) {
+    public Handle insertData(byte[] data) 
+    {
         MemoryNode memoryPointer = getInsertionLocation(data.length);
         memoryPointer.fillData(data);
         // expandStorageIfNecessary(data.length);
-        return new Handle(memoryPointer.location, data.length);
+        return new Handle(memoryPointer.getLocation(), data.length);
     }
 
 
@@ -64,15 +93,18 @@ public class MemoryRoot {
      *            the size of the data
      * @return MemoryNode pointer: block of memory allocated for insertion
      */
-    private MemoryNode getInsertionLocation(int dataSize) {
-        int startingSize = head.size;
+    private MemoryNode getInsertionLocation(int dataSize) 
+    {
+        int startingSize = head.getSize();
         MemoryNode memoryPointer = head.getFree(dataSize);
-        while (memoryPointer == null) {
+        while (memoryPointer == null) 
+        {
             duplicateCapacity();
             memoryPointer = head.getFree(dataSize);
         }
-        if (startingSize != head.size) {
-            System.out.println("Memory pool expanded to " + head.size
+        if (startingSize != head.getSize()) 
+        {
+            System.out.println("Memory pool expanded to " + head.getSize()
                     + " bytes");
         }
         return memoryPointer;
@@ -81,44 +113,56 @@ public class MemoryRoot {
     // remove3
     // add5
 
-
-    public void insertData(int size) {
+    /**
+     * insert data
+     * @param size of node
+     */
+    public void insertData(int size) 
+    {
         MemoryNode memoryPointer;
-        int startingSize = head.size;
+        int startingSize = head.getSize();
         memoryPointer = head.getFree(size);
-        while (memoryPointer == null) {
+        while (memoryPointer == null) 
+        {
             duplicateCapacity();
             memoryPointer = head.getFree(size);
         }
-        if (startingSize != head.size) {
-            System.out.println("Memory pool expanded to " + head.size
+        if (startingSize != head.getSize()) 
+        {
+            System.out.println("Memory pool expanded to " + head.getSize()
                     + "bytes");
         }
         memoryPointer.fillData(size);
     }
 
-
-    private void duplicateCapacity() {
+    /**
+     * expands the memory manager
+     */
+    private void duplicateCapacity() 
+    {
         head.collapse();
         MemoryNode updatedHead = new MemoryNode(head);
         head = updatedHead;
     }
 
-
-    public String toString(){
+    /**
+     * toString method
+     */
+    public String toString()
+    {
         String strOfPool = head.toString();
         String val = "Freeblock List:";
-        //val += head.toString().length() > 0 ? strOfPool :"\nThere are no freeblocks in the memory pool";
-
         val += head.toString().length() > 0 ? toStringHelper(strOfPool) :"\nThere are no freeblocks in the memory pool";
         return val;
     }
 
-
     /**
      * this method will take the string, and append the list
+     * @param printout is printout
+     * @return is a string
      */
-    private String toStringHelper(String printout) {
+    private String toStringHelper(String printout) 
+    {
         // newline character followed by previous key
         // regex set up for key1: val1\nkey2: val\ns
         String output = "";

@@ -7,34 +7,48 @@ import student.TestCase;
  * @author agerhardt
  * @version 09.032023
  */
-public class MemoryNodeTest extends TestCase {
-    MemoryNode tester;
-    MemoryRoot testRoot;
+public class MemoryNodeTest extends TestCase 
+{
+    private MemoryNode tester;
+    private MemoryRoot testRoot;
 
-    public void setUp() {
+    /**
+     * sets up each test case
+     */
+    public void setUp() 
+    {
         tester = new MemoryNode(8, 0);
     }
 
-
-    public void testEmpty() {
+    /**
+     * test empty
+     */
+    public void testEmpty() 
+    {
         assertTrue(tester.isEmpty());
         tester.split();
         assertTrue(tester.isEmpty());
         tester.collapse();
-        assertFalse(tester.splitted);
+        assertFalse(tester.getSplitted());
     }
 
-
+    /**
+     * test root
+     */
     public void testRoot() {
         testRoot = new MemoryRoot(32);
 
-        assertTrue(testRoot.head.isEmpty());
+        assertTrue(testRoot.getHead().isEmpty());
         assertEquals(testRoot.toString(), "Freeblock List:\n" + "32: 0");
         testRoot.insertData(10);
         assertEquals(testRoot.toString(), "Freeblock List:\n" + "16: 16");
-        boolean ma = testRoot.head.isEmpty();
-        assertFalse(testRoot.head.isEmpty());
+        boolean ma = testRoot.getHead().isEmpty();
+        assertFalse(testRoot.getHead().isEmpty());
     }
+    
+    /**
+     * test root delete
+     */
     public void testRootDelete() {
         testRoot = new MemoryRoot(4);
         Handle seven = testRoot.insertData("7777777".getBytes());

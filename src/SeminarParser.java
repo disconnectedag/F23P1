@@ -7,25 +7,28 @@ import java.util.Scanner;
  * calls upon the commandhandler object to handle the request 
  * @author maxrojtman
  * @author agerhardt
- *
+ * @version 09.032023
  */
-public class SeminarParser {
-
+public class SeminarParser 
+{
     private Scanner sc;
     private CommandHandler commander;
 
     /**
-     * Basic constructor that attempts to read in the file
-     * @param filename: the name of the command text file
-     * @param commander: the command Handler object that executes task
+     * creates scanner to read the file 
+     * @param filename is the name of the command text file
+     * @param commander is the command Handler object
      */
-    public SeminarParser(String filename, CommandHandler commander) {
+    public SeminarParser(String filename, CommandHandler commander) 
+    {
         this.commander = commander;
-        try {
+        try 
+        {
             sc = new Scanner(new File(filename));
             readFile();
         }
-        catch (Exception e){
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
@@ -35,17 +38,22 @@ public class SeminarParser {
      * Reads through each line in a text file, determines which command 
      * should be called. 
      */
-    private void readFile() {
-        while (sc.hasNextLine()) {
+    private void readFile() 
+    {
+        while (sc.hasNextLine()) 
+        {
             String command = "";
-            try {
+            try 
+            {
                 command = sc.next();
             }
-            catch(NoSuchElementException e) {
+            catch(NoSuchElementException e) 
+            {
                 continue;
             }
-//            String command = sc.next();
-            if (command.equals("print")) {
+            // String command = sc.next();
+            if (command.equals("print")) 
+            {
                 String printType = sc.next();
                 sc.nextLine();
                 commander.print(printType);
@@ -53,7 +61,8 @@ public class SeminarParser {
             }
             int id = sc.nextInt();
             sc.nextLine();
-            switch (command) {
+            switch (command) 
+            {
                 case "insert":
                     insertMethod(id);
                     break;
@@ -72,9 +81,9 @@ public class SeminarParser {
      * this seminar object is then inserted into the commandHandler
      * @param id
      */
-    private void insertMethod(int id) {
+    private void insertMethod(int id) 
+    {
         String title = sc.nextLine().trim();
-
         String date = sc.next().trim();
         int length = sc.nextInt();
         short xCord = sc.nextShort();
@@ -84,7 +93,8 @@ public class SeminarParser {
         String words = sc.nextLine().trim();
         String[] keywords = words.split("\\s+");
         String desc = sc.nextLine().trim();
-        Seminar entry = new Seminar(id, title, date, length, xCord, yCord,cost,keywords,desc);
-        commander.insert(id,entry);
+        Seminar entry = new Seminar(id, title, date, length, xCord,
+            yCord, cost, keywords, desc);
+        commander.insert(id, entry);
     }
 }

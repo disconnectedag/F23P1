@@ -10,7 +10,7 @@ import student.TestCase;
  *
  * @author maxrojtman
  * @author agerhardt
- * @version 2023-02-3
+ * @version 09.032023
  */
 public class SemManagerTest extends TestCase {
 
@@ -45,28 +45,41 @@ public class SemManagerTest extends TestCase {
     /**
      * Test if the Stream is interpreted Correctly
      */
-    public void testInterpretStream() {
+    public void testInterpretStream() 
+    {
         String correctOut = "";
-        try {
-            correctOut = new String(Files.readAllBytes(Paths.get("SampleOutput.txt")));
-        }catch(IOException e) {
+        try 
+        {
+            correctOut = new String(Files.readAllBytes(Paths
+                .get("SampleOutput.txt")));
+        }
+        catch (IOException e) 
+        {
             e.printStackTrace();
         }
         SemManager manager = new SemManager();
-        String[] sampleArgs = {"512","4","SampleInput.txt"};
+        String[] sampleArgs = {"512", "4", "SampleInput.txt"};
         manager.main(sampleArgs);
         assertEquals(correctOut, outContent.toString());
     }
-
-    public void testInterpretStream2() {
+    
+    /**
+     * test the stream again
+     */
+    public void testInterpretStream2() 
+    {
         String correctOut = "";
-        try {
-            correctOut = new String(Files.readAllBytes(Paths.get("SampleOutput2.txt")));
-        }catch(IOException e) {
+        try 
+        {
+            correctOut = new String(Files.readAllBytes(Paths
+                .get("SampleOutput2.txt")));
+        }
+        catch (IOException e) 
+        {
             e.printStackTrace();
         }
         SemManager manager = new SemManager();
-        String[] sampleArgs = {"512","4","SampleInput2.txt"};
+        String[] sampleArgs = {"512", "4", "SampleInput2.txt"};
         manager.main(sampleArgs);
         assertEquals(correctOut, outContent.toString());
 

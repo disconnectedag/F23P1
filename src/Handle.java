@@ -2,12 +2,20 @@
  * Stores the Position and record length, used in a hash map
  * @author maxrojtman
  * @author agerhardt
- *
+ * @version 09.032023
  */
-public class Handle {
+public class Handle 
+{
     private int startPosition;
     private int recordLength;
-    public Handle(int start, int length) {
+    
+    /**
+     * constructor
+     * @param start is the start position
+     * @param length is the end position
+     */
+    public Handle(int start, int length) 
+    {
         startPosition = start;
         recordLength = length;
     }
@@ -15,17 +23,23 @@ public class Handle {
      * Getter for startPositon
      * @return the start Position
      */
-    public int getStart() {
+    public int getStart() 
+    {
         return startPosition;
     }
     /**
      * Getter for the Length
      * @return the length of the record
      */
-    public int getLength() {
+    public int getLength() 
+    {
         return recordLength;
     }
-    public String toString() {
-        return ("Start:"+startPosition+ " Length:"+recordLength);
+    /**
+     * toString method
+     */
+    public String toString() 
+    {
+        return ("Start:" + startPosition + " Length:" + recordLength);
     }
 }

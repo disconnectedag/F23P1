@@ -1,4 +1,3 @@
-import java.util.List;
 
 /**
  * Memory root class
@@ -7,17 +6,24 @@ import java.util.List;
  * @author agerhardt
  * @version 09.032023
  */
-public class MemoryNode {
-    public static int numspaces = -1;
-    MemoryNode parent;
-    int size;
-    boolean dataNode;
-    boolean splitted;
-    int location;
-    byte[] memory;
-    MemoryNode l, r;
-
-    public MemoryNode(MemoryNode prevPool) {
+public class MemoryNode 
+{
+    public static int numspaces = -1; //num spaces
+    private MemoryNode parent;
+    private int size;
+    private boolean dataNode;
+    private boolean splitted;
+    private int location;
+    private byte[] memory;
+    private MemoryNode l;
+    private MemoryNode r;
+    
+    /**
+     * constructor function
+     * @param prevPool
+     */
+    public MemoryNode(MemoryNode prevPool) 
+    {
         parent = null;
         size = prevPool.size * 2;
         location = prevPool.location;
@@ -29,12 +35,83 @@ public class MemoryNode {
         r = new MemoryNode(size / 2, location + size / 2);
         r.parent = this;
     }
-    public int getSize() {
+    // getter functions 
+    /**
+     * gets l
+     * @return l node
+     */
+    public MemoryNode getLeftNode()
+    {
+        return l;
+    }
+    /**
+     * gets r
+     * @return r node
+     */
+    public MemoryNode getRightNode()
+    {
+        return r;
+    }
+    /**
+     * get memory byte array
+     * @return byte array
+     */
+    public byte[] getMemory()
+    {
+        return memory;
+    }
+    /**
+     * getter for the size
+     * @return the size
+     */
+    public int getSize() 
+    {
         return size;
     }
-
-
-    public MemoryNode(int space, int refpointer) {
+    
+    /**
+     * getter
+     * @return the data node
+     */
+    public boolean getDataNode()
+    {
+        return dataNode;
+    }
+    
+    /**
+     * getter
+     * @return splitted
+     */
+    public boolean getSplitted()
+    {
+        return splitted;
+    }
+    /**
+     * getter
+     * @return the location
+     */
+    public int getLocation() 
+    {
+        return location;
+    }
+    
+    
+    /**
+     * getter for parent
+     * @return parent node
+     */
+    public MemoryNode getParent()
+    {
+        return parent;
+    }
+    
+    /**
+     * constructor for node
+     * @param space is the space
+     * @param refpointer is the ref
+     */
+    public MemoryNode(int space, int refpointer) 
+    {
         size = space;
         location = refpointer;
         dataNode = false;
@@ -48,7 +125,8 @@ public class MemoryNode {
      *
      * @throws Exception
      */
-    public void split() {
+    public void split() 
+    {
         l = new MemoryNode(size / 2, location);
         l.parent = this;
         r = new MemoryNode(size / 2, location + size / 2);
@@ -57,8 +135,12 @@ public class MemoryNode {
     }
 
 
-
-    public void fillData(int size) {
+    /**
+     * fills in the data
+     * @param size is the size
+     */
+    public void fillData(int size) 
+    {
         dataNode = true;
         memory = String.valueOf(size).getBytes();
     }
@@ -66,8 +148,12 @@ public class MemoryNode {
 
 
 
-
-    public void fillData(byte[] data) {
+    /**
+     * fills the data
+     * @param data is the payload
+     */
+    public void fillData(byte[] data) 
+    {
         dataNode = true;
         memory = data;
     }
@@ -76,14 +162,17 @@ public class MemoryNode {
     /**
      * method attempts to delegate work to child
      *
-     * @param space
-     * @return
+     * @param space is the space
+     * @return is the
      */
-    private MemoryNode pass2child(int space) {
-        if (l != null && l.getFree(space) != null) {
+    private MemoryNode pass2child(int space) 
+    {
+        if (l != null && l.getFree(space) != null) 
+        {
             return l.getFree(space);
         }
-        if (r != null && r.getFree(space) != null) {
+        if (r != null && r.getFree(space) != null) 
+        {
             return r.getFree(space);
         }
         return null;
@@ -92,51 +181,58 @@ public class MemoryNode {
 
     /**
      * finds a free chunk of space in heap
-     *
-     * @param space
-     *            the size of the space
-     * @return
+     * @param space is the space
+     * @return is the return
      */
     public MemoryNode getFree(int space) {
-        if (space > size || dataNode == true) { // if not willing to adopt or                                    // size is too big
+        if (space > size || dataNode == true) 
+        {
             return null;
         }
-        if (space <= size / 2) {
-            if (splitted) { // try to pass work on to children
+        if (space <= size / 2) 
+        {
+            if (splitted) 
+            { // try to pass work on to children
                 MemoryNode childLabor = pass2child(space);
                 if (childLabor != null)
+                {
                     return childLabor;
+                }
             }
-            if (!splitted) { // make children & try again
+            if (!splitted) 
+            { // make children & try again
                 split();
                 return getFree(space);
             }
         }
-        if (space <= size && isEmpty()) {
+        if (space <= size && isEmpty()) 
+        {
             return this;
         }
         return null;
     }
 
-
     /**
-     * method for determining if node
-     * is empty
-     *
+     * method for determining if node is empty
      * @return true if leaf and no data stored
      */
-    boolean isEmpty() {
+    boolean isEmpty() 
+    {
         // cannot Contain data
-        if (dataNode) {
+        if (dataNode) 
+        {
             return false;
         }
-        if (l == null && r == null) {
+        if (l == null && r == null) 
+        {
             return true;
         }
-        if (l != null && !l.isEmpty()) {
+        if (l != null && !l.isEmpty()) 
+        {
             return false;
         }
-        if (r != null && !r.isEmpty()) {
+        if (r != null && !r.isEmpty()) 
+        {
             return false;
         }
         return true;
@@ -167,31 +263,44 @@ public class MemoryNode {
         return;
     }
 
-
     /**
      * Called on by the collapse function, this takes in the child that needs to
      * be deleted
+     * @param child is the child
      */
-    public void abortChild(MemoryNode child) {
-        if (l == child) {
+    public void abortChild(MemoryNode child) 
+    {
+        if (l == child) 
+        {
             l = null;
         }
-        if (r == child) {
+        if (r == child) 
+        {
             r = null;
         }
-        if (l == null && r == null) {
+        if (l == null && r == null) 
+        {
             splitted = false;
         }
     }
-    public String toString() {
+    
+    /**
+     * to string method
+     * @return String that is memory node
+     */
+    public String toString() 
+    {
         String val = "";
-        if (dataNode) {
+        if (dataNode) 
+        {
             return "";
         }
-        if (isEmpty()) {
+        if (isEmpty()) 
+        {
             return size + ": " + location + "\n";
         }
-        if (splitted) {
+        if (splitted) 
+        {
             val += (l != null)
                     ? l.toString()
                     : "\n" + size/2 + ": " + location + "\n";

@@ -1,5 +1,6 @@
 /**
- * The class containing the main method. This project uses Buddy Memory Allocation and HashMap
+ * The class containing the main method. This project uses Buddy Memory 
+ * Allocation and HashMap
  *
  * @author maxrojtman
  * @author agerhardt
@@ -53,8 +54,8 @@ public class SemManager {
     }
     /**
      * checks if its the power of 2
-     * @param number
-     * @return
+     * @param number is the number to check
+     * @return whether or not its a power of two
      */
     public static boolean isPowerOfTwo(int number) {
         if (number <= 0) {

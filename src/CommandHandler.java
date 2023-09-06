@@ -1,20 +1,21 @@
-import java.util.logging.MemoryHandler;
 
 /**
  * Stores the Position and record length, used in a hash map
  * @author maxrojtman
  * @author agerhardt
- *
+ * @version 09.032023
  */
-public class CommandHandler {
-    DoubleHash map;
-    MemoryRoot memoryPool;
+public class CommandHandler 
+{
+    private DoubleHash map; 
+    private MemoryRoot memoryPool; 
 
     /**
-     *
-     * @param memoryPoolSize
+     * 
+     * @param memoryPoolSize is the initial size
+     * @param hashsize is the initial size
      */
-    public CommandHandler(int memoryPoolSize, int hashsize){
+    public CommandHandler(int memoryPoolSize, int hashsize) {
         map = new DoubleHash<Handle>(hashsize);
         memoryPool = new MemoryRoot(memoryPoolSize);
     }
@@ -27,63 +28,86 @@ public class CommandHandler {
      * @param item
      */
 
-    public void insert(int id, Seminar item){
-        if (map.find(id) != -1){
-            System.out.printf("Insert FAILED - There is already a record with ID %d%n", id);
+    public void insert(int id, Seminar item)
+    {
+        if (map.find(id) != -1)
+        {
+            System.out.printf("Insert FAILED - There is already a record "
+                + "with ID %d%n", id);
             return;
         }
-        try {
+        try 
+        {
             byte[] serializedData = item.serialize();
             Handle receipt = memoryPool.insertData(serializedData);
             map.insert(id, receipt);
-            System.out.println("Successfully inserted record with ID "+id);
+            System.out.println("Successfully inserted record with ID " + id);
             System.out.println(item.toString());
             System.out.println("Size: " + serializedData.length);
         }
-        catch (Exception e){
+        catch (Exception e)
+        {
             e.printStackTrace();
 
         }
-
     }
-    public void search(int id){
+    
+    /**
+     * search function
+     * @param id is the seminar id
+     */
+    public void search(int id)
+    {
         Handle handleOfTarget = (Handle) map.get(id);
-        if (handleOfTarget == null){
-            System.out.printf("Search FAILED -- There is no record with ID %d%n", id);
+        if (handleOfTarget == null)
+        {
+            System.out.printf("Search FAILED -- There is no record with "
+                + "ID %d%n", id);
             return;
         }
-        System.out.println("Found record with ID "+id+":");
-        byte[] serializedData = memoryPool.getNodeAtLocation(handleOfTarget.getStart()).memory;
-        try {
+        System.out.println("Found record with ID " + id + ":");
+        byte[] serializedData = memoryPool.getNodeAtLocation(handleOfTarget
+            .getStart()).getMemory();
+        try 
+        {
             Seminar retrievedValue = Seminar.deserialize(serializedData);
             System.out.println(retrievedValue.toString());
-        }catch(Exception e){
+        }
+        catch(Exception e)
+        {
             e.printStackTrace();
         }
 
     }
+    
     /**
-     * prints either the hashmap or the memory manager
-     * @param printType: the print type
+     * prints either hash table or memory manager
+     * @param printType is print type
      */
-    public void print(String printType) {
-        if (printType.equals("hashtable")){
+    public void print(String printType) 
+    {
+        if (printType.equals("hashtable"))
+        {
             System.out.println(map.toString());
             return;
         }
-        else {
+        else 
+        {
             System.out.println(memoryPool.toString());
         }
     }
 
     /**
-     * Deletes records from the map and memorypool
-     * @param id: the id of the seminar
+     * Deletes records from the map and memory pool
+     * @param id is the id of the seminar
      */
-    public void delete(int id){
+    public void delete(int id)
+    {
         Handle handleOfTarget = (Handle) map.get(id);
-        if (handleOfTarget == null){
-            System.out.printf("Delete FAILED -- There is no record with ID %d%n", id);
+        if (handleOfTarget == null)
+        {
+            System.out.printf("Delete FAILED -- There is no record "
+                + "with ID %d%n", id);
             return;
         }
         memoryPool.deleteData(handleOfTarget.getStart());

@@ -34,7 +34,7 @@ Hashtable:
 6: 6
 total records: 3
 Freeblock List:
-There are no freeblocks in the memory pool
+256: 768
 Record with ID 4 successfully deleted from the database
 Search FAILED -- There is no record with ID 4
 Hashtable:
@@ -81,6 +81,9 @@ total records: 4
 Freeblock List:
 256: 0 768 1024
 512: 1536
+256: 2304
+512: 2560
+1024: 3072
 Hash table expanded to 16 records
 Successfully inserted record with ID 11
 ID: 11, Title: Advanced Topics in Cryptography
@@ -143,6 +146,10 @@ Freeblock List:
 1024: 1024
 256: 2816
 1024: 3072
+256: 4352
+512: 4608
+1024: 5120
+2048: 6144
 Successfully inserted record with ID 14
 ID: 14, Title: Distributed Systems Conference
 Date: 0905150900, Length: 40, X: 15, Y: 5, Cost: 20
