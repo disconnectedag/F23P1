@@ -1,0 +1,115 @@
+insert 4
+Advanced Topics in AI
+0825151030 40 15 5 20
+Artificial_Intelligence AI Computer_Science VT Virginia_Tech
+Explore advanced topics in AI and machine learning
+
+insert 5
+Natural Language Processing
+0827151300 30 10 10 20
+NLP Linguistics Computer_Science VT Virginia_Tech
+Study the field of natural language processing
+
+insert 6
+Data Science Seminar
+0829150900 20 5 15 10
+Data_Science Machine_Learning Computer_Science VT Virginia_Tech
+Discuss the latest trends in data science and machine learning
+
+search 4
+search 5
+
+print hashtable
+print blocks
+
+delete 4
+
+search 4
+
+print hashtable
+print blocks
+
+insert 7
+Blockchain Technology Workshop
+0830151400 15 5 10 8
+Blockchain Cryptocurrency Computer_Science VT Virginia_Tech
+Learn about blockchain technology and its applications
+
+insert 8
+Quantum Computing Symposium
+0831151100 10 2 8 5
+Quantum_Computing Physics Computer_Science VT Virginia_Tech
+Explore the world of quantum computing
+
+delete 7
+
+insert 9
+High-Performance Computing Workshop
+0901150930 25 10 5 15
+HPC Workshop Computer_Science VT Virginia_Tech
+Participate in a high-performance computing workshop
+
+search 8
+
+print hashtable
+print blocks
+insert 11
+Advanced Topics in Cryptography
+0902151200 30 10 10 20
+Cryptography Security Computer_Science VT Virginia_Tech
+Study advanced cryptography techniques
+
+insert 12
+Machine Learning Workshop
+0903151500 25 8 12 15
+Machine_Learning Workshop Computer_Science VT Virginia_Tech
+Hands-on workshop on machine learning
+
+delete 6
+delete 7
+delete 8
+
+search 7
+search 8
+
+print hashtable
+print blocks
+
+insert 13
+Software Engineering Seminar
+0904151000 15 5 10 8
+Software_Engineering Development Computer_Science VT Virginia_Tech
+Explore modern software engineering practices
+
+search 6
+search 7
+search 8
+search 12
+
+print hashtable
+print blocks
+
+insert 14
+Distributed Systems Conference
+0905150900 40 15 5 20
+Distributed_Systems Networking Computer_Science VT Virginia_Tech
+Conference on distributed systems
+
+insert 15
+Computer Graphics Workshop
+0906151400 20 5 15 10
+Computer_Graphics Workshop Computer_Science VT Virginia_Tech
+Hands-on workshop on computer graphics
+
+delete 10
+delete 11
+delete 12
+delete 13
+delete 14
+
+search 12
+search 13
+
+print hashtable
+print blocks
+

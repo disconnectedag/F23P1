@@ -1,0 +1,186 @@
+Successfully inserted record with ID 4
+ID: 4, Title: Advanced Topics in AI
+Date: 0825151030, Length: 40, X: 15, Y: 5, Cost: 20
+Description: Explore advanced topics in AI and machine learning
+Keywords: Artificial_Intelligence, AI, Computer_Science, VT, Virginia_Tech
+Size: 179
+Successfully inserted record with ID 5
+ID: 5, Title: Natural Language Processing
+Date: 0827151300, Length: 30, X: 10, Y: 10, Cost: 20
+Description: Study the field of natural language processing
+Keywords: NLP, Linguistics, Computer_Science, VT, Virginia_Tech
+Size: 170
+Memory pool expanded to 1024 bytes
+Hash table expanded to 8 records
+Successfully inserted record with ID 6
+ID: 6, Title: Data Science Seminar
+Date: 0829150900, Length: 20, X: 5, Y: 15, Cost: 10
+Description: Discuss the latest trends in data science and machine learning
+Keywords: Data_Science, Machine_Learning, Computer_Science, VT, Virginia_Tech
+Size: 193
+Found record with ID 4:
+ID: 4, Title: Advanced Topics in AI
+Date: 0825151030, Length: 40, X: 15, Y: 5, Cost: 20
+Description: Explore advanced topics in AI and machine learning
+Keywords: Artificial_Intelligence, AI, Computer_Science, VT, Virginia_Tech
+Found record with ID 5:
+ID: 5, Title: Natural Language Processing
+Date: 0827151300, Length: 30, X: 10, Y: 10, Cost: 20
+Description: Study the field of natural language processing
+Keywords: NLP, Linguistics, Computer_Science, VT, Virginia_Tech
+Hashtable:
+4: 4
+5: 5
+6: 6
+total records: 3
+Freeblock List:
+There are no freeblocks in the memory pool
+Record with ID 4 successfully deleted from the database
+Search FAILED -- There is no record with ID 4
+Hashtable:
+4: TOMBSTONE
+5: 5
+6: 6
+total records: 2
+Freeblock List:
+256: 0 768
+Memory pool expanded to 2048 bytes
+Successfully inserted record with ID 7
+ID: 7, Title: Blockchain Technology Workshop
+Date: 0830151400, Length: 15, X: 5, Y: 10, Cost: 8
+Description: Learn about blockchain technology and its applications
+Keywords: Blockchain, Cryptocurrency, Computer_Science, VT, Virginia_Tech
+Size: 191
+Successfully inserted record with ID 8
+ID: 8, Title: Quantum Computing Symposium
+Date: 0831151100, Length: 10, X: 2, Y: 8, Cost: 5
+Description: Explore the world of quantum computing
+Keywords: Quantum_Computing, Physics, Computer_Science, VT, Virginia_Tech
+Size: 172
+Record with ID 7 successfully deleted from the database
+Memory pool expanded to 4096 bytes
+Successfully inserted record with ID 9
+ID: 9, Title: High-Performance Computing Workshop
+Date: 0901150930, Length: 25, X: 10, Y: 5, Cost: 15
+Description: Participate in a high-performance computing workshop
+Keywords: HPC, Workshop, Computer_Science, VT, Virginia_Tech
+Size: 181
+Found record with ID 8:
+ID: 8, Title: Quantum Computing Symposium
+Date: 0831151100, Length: 10, X: 2, Y: 8, Cost: 5
+Description: Explore the world of quantum computing
+Keywords: Quantum_Computing, Physics, Computer_Science, VT, Virginia_Tech
+Hashtable:
+0: 8
+1: 9
+4: TOMBSTONE
+5: 5
+6: 6
+7: TOMBSTONE
+total records: 4
+Freeblock List:
+256: 0 768 1024
+512: 1536
+Hash table expanded to 16 records
+Successfully inserted record with ID 11
+ID: 11, Title: Advanced Topics in Cryptography
+Date: 0902151200, Length: 30, X: 10, Y: 10, Cost: 20
+Description: Study advanced cryptography techniques
+Keywords: Cryptography, Security, Computer_Science, VT, Virginia_Tech
+Size: 172
+Successfully inserted record with ID 12
+ID: 12, Title: Machine Learning Workshop
+Date: 0903151500, Length: 25, X: 8, Y: 12, Cost: 15
+Description: Hands-on workshop on machine learning
+Keywords: Machine_Learning, Workshop, Computer_Science, VT, Virginia_Tech
+Size: 169
+Record with ID 6 successfully deleted from the database
+Delete FAILED -- There is no record with ID 7
+Record with ID 8 successfully deleted from the database
+Search FAILED -- There is no record with ID 7
+Search FAILED -- There is no record with ID 8
+Hashtable:
+5: 5
+6: TOMBSTONE
+8: TOMBSTONE
+9: 9
+11: 11
+12: 12
+total records: 4
+Freeblock List:
+256: 0
+512: 512
+1024: 1024
+256: 2816
+1024: 3072
+Memory pool expanded to 8192 bytes
+Successfully inserted record with ID 13
+ID: 13, Title: Software Engineering Seminar
+Date: 0904151000, Length: 15, X: 5, Y: 10, Cost: 8
+Description: Explore modern software engineering practices
+Keywords: Software_Engineering, Development, Computer_Science, VT, Virginia_Tech
+Size: 187
+Search FAILED -- There is no record with ID 6
+Search FAILED -- There is no record with ID 7
+Search FAILED -- There is no record with ID 8
+Found record with ID 12:
+ID: 12, Title: Machine Learning Workshop
+Date: 0903151500, Length: 25, X: 8, Y: 12, Cost: 15
+Description: Hands-on workshop on machine learning
+Keywords: Machine_Learning, Workshop, Computer_Science, VT, Virginia_Tech
+Hashtable:
+5: 5
+6: TOMBSTONE
+8: TOMBSTONE
+9: 9
+11: 11
+12: 12
+13: 13
+total records: 5
+Freeblock List:
+256: 0
+512: 512
+1024: 1024
+256: 2816
+1024: 3072
+Successfully inserted record with ID 14
+ID: 14, Title: Distributed Systems Conference
+Date: 0905150900, Length: 40, X: 15, Y: 5, Cost: 20
+Description: Conference on distributed systems
+Keywords: Distributed_Systems, Networking, Computer_Science, VT, Virginia_Tech
+Size: 175
+Successfully inserted record with ID 15
+ID: 15, Title: Computer Graphics Workshop
+Date: 0906151400, Length: 20, X: 5, Y: 15, Cost: 10
+Description: Hands-on workshop on computer graphics
+Keywords: Computer_Graphics, Workshop, Computer_Science, VT, Virginia_Tech
+Size: 172
+Delete FAILED -- There is no record with ID 10
+Record with ID 11 successfully deleted from the database
+Record with ID 12 successfully deleted from the database
+Record with ID 13 successfully deleted from the database
+Record with ID 14 successfully deleted from the database
+Search FAILED -- There is no record with ID 12
+Search FAILED -- There is no record with ID 13
+Hashtable:
+5: 5
+6: TOMBSTONE
+8: TOMBSTONE
+9: 9
+11: TOMBSTONE
+12: TOMBSTONE
+13: TOMBSTONE
+14: TOMBSTONE
+15: 15
+total records: 3
+Freeblock List:
+256: 0
+512: 512
+1024: 1024
+256: 2304
+512: 2560
+1024: 3072
+512: 4096
+256: 4864
+1024: 5120
+2048: 6144
