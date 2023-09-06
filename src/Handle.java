@@ -1,6 +1,7 @@
 /**
  * Stores the Position and record length, used in a hash map
  * @author maxrojtman
+ * @author agerhardt
  *
  */
 public class Handle {

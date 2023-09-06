@@ -1,4 +1,10 @@
 /**
+ * Stores the Position and record length, used in a hash map
+ * @author maxrojtman
+ * @author agerhardt
+ *
+ */
+/**
  * This must be a power of two, or the program should
  * immediately terminate with an error message.
  *

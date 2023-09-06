@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -7,6 +6,7 @@ import java.util.Scanner;
  * This class reads in txt files and
  * calls upon the commandhandler object to handle the request 
  * @author maxrojtman
+ * @author agerhardt
  *
  */
 public class SeminarParser {

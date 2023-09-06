@@ -7,9 +7,9 @@ import java.io.*;
  * exactly the right length.
  *
  * @author CS3114/CS5040 staff
+ * @author agerhardt
  * @version July 2023, updated August 2023
  */
-
 public class Seminar implements Serializable {
     private String title; // Semianar title
     private String date; // Seminar date

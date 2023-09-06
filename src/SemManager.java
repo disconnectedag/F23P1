@@ -1,10 +1,5 @@
-
 /**
- * This project uses Buddy Memory Allocation and HashMap
- */
-
-/**
- * The class containing the main method.
+ * The class containing the main method. This project uses Buddy Memory Allocation and HashMap
  *
  * @author maxrojtman
  * @author agerhardt
@@ -39,8 +34,32 @@ public class SemManager {
     public static void main(String[] args) {
         int memorySize = Integer.valueOf(args[0]);
         int hashSize  = Integer.valueOf(args[1]);
+     // Sanity check that both sizes are a power of 2
+        if (!isPowerOfTwo(memorySize))
+        {
+            System.out.println("The memory size is not a power of 2, "
+                + "and is therefore invalid");
+            return;
+        }
+        if (!isPowerOfTwo(hashSize))
+        {
+            System.out.println("The hash table size is not a power of 2, "
+                + "and is therefore invalid");
+            return;
+        }
         String commandFileName = args[2];
         CommandHandler commander = new CommandHandler(memorySize, hashSize);
         SeminarParser reader = new SeminarParser(commandFileName, commander);
+    }
+    /**
+     * checks if its the power of 2
+     * @param number
+     * @return
+     */
+    public static boolean isPowerOfTwo(int number) {
+        if (number <= 0) {
+            return false;
+        }
+        return (number & (number - 1)) == 0;
     }
 }

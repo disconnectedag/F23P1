@@ -1,3 +1,11 @@
+/**
+ * Memory root class
+ *
+ * @author maxrojtman
+ * @author agerhardt
+ * @version 09.032023
+ */
+
 public class MemoryRoot {
     MemoryNode head;
 

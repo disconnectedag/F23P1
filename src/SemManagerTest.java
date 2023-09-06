@@ -9,6 +9,7 @@ import student.TestCase;
  * THE OFFICIAL TEST CLASS
  *
  * @author maxrojtman
+ * @author agerhardt
  * @version 2023-02-3
  */
 public class SemManagerTest extends TestCase {
@@ -25,8 +26,22 @@ public class SemManagerTest extends TestCase {
         System.setErr(new PrintStream(errContent));
     }
 
-
-
+    /**
+     * test isPowerOfTwo method
+     */
+    public void testIsPowerOfTwo()
+    {
+        
+        int num = 3;
+        assertFalse(SemManager.isPowerOfTwo(num));
+        num = 4;
+        assertTrue(SemManager.isPowerOfTwo(num));
+        //negative number and 0
+        num = -1;
+        assertFalse(SemManager.isPowerOfTwo(num));
+        num = 0;
+        assertFalse(SemManager.isPowerOfTwo(num));
+    }
     /**
      * Test if the Stream is interpreted Correctly
      */

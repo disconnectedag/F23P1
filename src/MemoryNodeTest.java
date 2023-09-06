@@ -1,6 +1,12 @@
-
 import student.TestCase;
 
+/**
+ * Memory root class
+ *
+ * @author maxrojtman
+ * @author agerhardt
+ * @version 09.032023
+ */
 public class MemoryNodeTest extends TestCase {
     MemoryNode tester;
     MemoryRoot testRoot;

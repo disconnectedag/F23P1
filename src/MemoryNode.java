@@ -1,5 +1,12 @@
 import java.util.List;
 
+/**
+ * Memory root class
+ *
+ * @author maxrojtman
+ * @author agerhardt
+ * @version 09.032023
+ */
 public class MemoryNode {
     public static int numspaces = -1;
     MemoryNode parent;

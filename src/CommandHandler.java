@@ -1,5 +1,11 @@
 import java.util.logging.MemoryHandler;
 
+/**
+ * Stores the Position and record length, used in a hash map
+ * @author maxrojtman
+ * @author agerhardt
+ *
+ */
 public class CommandHandler {
     DoubleHash map;
     MemoryRoot memoryPool;
