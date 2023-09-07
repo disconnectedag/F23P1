@@ -9,7 +9,7 @@
 public class MemoryNode 
 {
     /** numspaces is always -1 */ 
-    public static int numspaces = -1;
+    public static final int numspaces = -1;
     private MemoryNode parent;
     private int size;
     private boolean dataNode;
