@@ -61,7 +61,7 @@ public class DoubleHashTest extends TestCase
         tester.delete(44);
         tester.insert(81, 81);
         tester.insert(4, tester);
-        tester.insert(3,3);
+        tester.insert(3, 3);
         tester.insert(3, tester);
         System.out.print(tester.toString());
 

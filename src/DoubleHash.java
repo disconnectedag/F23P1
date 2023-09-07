@@ -3,8 +3,8 @@
  * @author maxrojtman
  * @author agerhardt
  * @version 09.032023
+ * @param <T> is the type of object
  */
-
 public class DoubleHash<T> 
 {
     private MapNode[] map;
@@ -188,6 +188,7 @@ public class DoubleHash<T>
 
     /**
      * returns the string of the hashtable
+     * @return a string of the hash table
      */
     public String toString() 
     {

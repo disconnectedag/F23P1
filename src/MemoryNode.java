@@ -8,7 +8,8 @@
  */
 public class MemoryNode 
 {
-    public static int numspaces = -1; //num spaces
+    /** numspaces is always -1 */ 
+    public static int numspaces = -1;
     private MemoryNode parent;
     private int size;
     private boolean dataNode;
@@ -20,7 +21,7 @@ public class MemoryNode
     
     /**
      * constructor function
-     * @param prevPool
+     * @param prevPool is the previous pool
      */
     public MemoryNode(MemoryNode prevPool) 
     {
@@ -137,12 +138,12 @@ public class MemoryNode
 
     /**
      * fills in the data
-     * @param size is the size
+     * @param sizeParam is the size
      */
-    public void fillData(int size) 
+    public void fillData(int sizeParam) 
     {
         dataNode = true;
-        memory = String.valueOf(size).getBytes();
+        memory = String.valueOf(sizeParam).getBytes();
     }
 
 
@@ -231,11 +232,7 @@ public class MemoryNode
         {
             return false;
         }
-        if (r != null && !r.isEmpty()) 
-        {
-            return false;
-        }
-        return true;
+        return !(r != null && !r.isEmpty()) ;        
         // left must be null or l.getFree() == null
         // right must be null or r.getFree() == null
     }
@@ -303,10 +300,10 @@ public class MemoryNode
         {
             val += (l != null)
                     ? l.toString()
-                    : "\n" + size/2 + ": " + location + "\n";
+                    : "\n" + size / 2 + ": " + location + "\n";
             val += (r != null)
                     ? r.toString()
-                    : "\n" + size/2 + ": " + (location+size/2) + "\n";
+                    : "\n" + size / 2 + ": " + (location + size / 2) + "\n";
         }
         return val;
 

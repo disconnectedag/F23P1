@@ -12,7 +12,7 @@ public class MemoryRoot
     
     /**
      * constructor
-     * @param size
+     * @param size is the size param
      */
     public MemoryRoot(int size) 
     {
@@ -21,7 +21,7 @@ public class MemoryRoot
     
     /**
      * getter function for head
-     * @return
+     * @return the head
      */
     public MemoryNode getHead()
     {
@@ -73,9 +73,9 @@ public class MemoryRoot
 
     /**
      *
-     * @param data
+     * @param data is the data byte array
      * @return a Handle that stores the location, and the size of the recently
-     *         inserted data
+     * inserted data
      */
     public Handle insertData(byte[] data) 
     {
@@ -147,12 +147,14 @@ public class MemoryRoot
 
     /**
      * toString method
+     * @return the string of freeblock list
      */
     public String toString()
     {
         String strOfPool = head.toString();
         String val = "Freeblock List:";
-        val += head.toString().length() > 0 ? toStringHelper(strOfPool) :"\nThere are no freeblocks in the memory pool";
+        val += head.toString().length() > 0 ? toStringHelper(strOfPool) : 
+            "\nThere are no freeblocks in the memory pool";
         return val;
     }
 

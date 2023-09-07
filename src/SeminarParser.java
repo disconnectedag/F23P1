@@ -47,7 +47,7 @@ public class SeminarParser
             {
                 command = sc.next();
             }
-            catch(NoSuchElementException e) 
+            catch (NoSuchElementException e) 
             {
                 continue;
             }

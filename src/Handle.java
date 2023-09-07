@@ -37,6 +37,7 @@ public class Handle
     }
     /**
      * toString method
+     * @return is a string of start and length
      */
     public String toString() 
     {

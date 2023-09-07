@@ -11,7 +11,7 @@ public class CommandHandler
     private MemoryRoot memoryPool; 
 
     /**
-     * 
+     * constructor function
      * @param memoryPoolSize is the initial size
      * @param hashsize is the initial size
      */
@@ -21,13 +21,12 @@ public class CommandHandler
     }
 
     /**
-     * validates id is unique
-     * inserts into memorypool
+     * validates id is unique 
+     * inserts into memory pool
      * updates map
-     * @param id
-     * @param item
+     * @param id is the id
+     * @param item is the item
      */
-
     public void insert(int id, Seminar item)
     {
         if (map.find(id) != -1)
@@ -73,7 +72,7 @@ public class CommandHandler
             Seminar retrievedValue = Seminar.deserialize(serializedData);
             System.out.println(retrievedValue.toString());
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             e.printStackTrace();
         }
