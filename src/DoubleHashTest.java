@@ -8,14 +8,14 @@ import student.TestCase;
  */
 public class DoubleHashTest extends TestCase
 {
-    private DoubleHash openDSA;
+    private DoubleHash<Integer> openDSA;
     
     /**
      * sets up each test case
      */
     public void setUp() 
     {
-        openDSA = new DoubleHash(16);
+        openDSA = new DoubleHash<Integer>(16);
     }
     /**
      * tests insert
@@ -56,14 +56,21 @@ public class DoubleHashTest extends TestCase
      */
     public void testDeletionProblem() 
     {
-        DoubleHash tester = new DoubleHash(4);
+        DoubleHash<Object> tester = new DoubleHash<Object>(4);
+        String expectedOut = "Hashtable:\n"
+            + "1: 81\n"
+            + "3: 3\n"
+            + "4: 4\n"
+            + "5: 3\n"
+            + "total records: 4";
         tester.insert(44, 44);
         tester.delete(44);
         tester.insert(81, 81);
         tester.insert(4, tester);
         tester.insert(3, 3);
         tester.insert(3, tester);
-        System.out.print(tester.toString());
+        assertEquals(tester.toString(), expectedOut);
 
     }
+
 }

@@ -7,7 +7,7 @@
  */
 public class DoubleHash<T> 
 {
-    private MapNode[] map;
+    private MapNode<T>[] map;
     private boolean[] tombs;
     private int capacity;
     private int m;
@@ -16,6 +16,7 @@ public class DoubleHash<T>
      * constructor
      * @param arraySize is the initial size
      */
+    @SuppressWarnings("unchecked")
     public DoubleHash(int arraySize) 
     {
         map = new MapNode[arraySize];
@@ -31,7 +32,7 @@ public class DoubleHash<T>
      */
     public void insert(int id, T data) 
     {
-        insert(new MapNode(id, data));
+        insert(new MapNode<T>(id, data));
     }
 
     /**
@@ -40,7 +41,7 @@ public class DoubleHash<T>
      * decreases capacity after each insert
      * @param node is the node
      */
-    private void insert(MapNode node) 
+    private void insert(MapNode<T> node) 
     {
         if (!sizeRequirementMet()) 
         {
@@ -65,7 +66,7 @@ public class DoubleHash<T>
         {
             return null;
         }
-        return (T)map[key].data;
+        return map[key].data;
     }
 
 
@@ -187,7 +188,7 @@ public class DoubleHash<T>
     }
 
     /**
-     * returns the string of the hashtable
+     * returns the string of the hash table
      * @return a string of the hash table
      */
     public String toString() 
@@ -219,6 +220,7 @@ public class DoubleHash<T>
      * is the map node
      * @param <T> is the type
      */
+    @SuppressWarnings("hiding")
     private class MapNode<T> 
     {
         private int id;
@@ -227,7 +229,7 @@ public class DoubleHash<T>
         /**
          * 
          * @param id is the seminar id
-         * @param data is the payload
+         * @param data is the pay load
          */
         private MapNode(int id, T data) 
         {

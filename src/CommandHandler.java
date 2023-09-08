@@ -7,7 +7,7 @@
  */
 public class CommandHandler 
 {
-    private DoubleHash map; 
+    private DoubleHash<Handle> map; 
     private MemoryRoot memoryPool; 
 
     /**

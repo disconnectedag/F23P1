@@ -42,7 +42,7 @@ public class MemoryNodeTest extends TestCase
         assertEquals(testRoot.toString(), "Freeblock List:\n" + "32: 0");
         testRoot.insertData(10);
         assertEquals(testRoot.toString(), "Freeblock List:\n" + "16: 16");
-        boolean ma = testRoot.getHead().isEmpty();
+        testRoot.getHead().isEmpty();
         assertFalse(testRoot.getHead().isEmpty());
     }
     
@@ -52,8 +52,8 @@ public class MemoryNodeTest extends TestCase
     public void testRootDelete() {
         testRoot = new MemoryRoot(4);
         Handle seven = testRoot.insertData("7777777".getBytes());
-        Handle eight = testRoot.insertData("88888888".getBytes());
-        Handle four = testRoot.insertData("4444".getBytes());
+        testRoot.insertData("88888888".getBytes());
+        testRoot.insertData("4444".getBytes());
         testRoot.deleteData(seven.getStart());
         System.out.print(testRoot);
     }

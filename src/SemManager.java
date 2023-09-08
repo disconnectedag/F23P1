@@ -50,6 +50,7 @@ public class SemManager {
         }
         String commandFileName = args[2];
         CommandHandler commander = new CommandHandler(memorySize, hashSize);
+        @SuppressWarnings("unused")
         SeminarParser reader = new SeminarParser(commandFileName, commander);
     }
     /**

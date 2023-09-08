@@ -101,11 +101,11 @@ public class MemoryRoot
         {
             duplicateCapacity();
             memoryPointer = head.getFree(dataSize);
-        }
-        if (startingSize != head.getSize()) 
-        {
-            System.out.println("Memory pool expanded to " + head.getSize()
+            if (startingSize != head.getSize()) 
+            {
+                System.out.println("Memory pool expanded to " + head.getSize()
                     + " bytes");
+            }
         }
         return memoryPointer;
     }

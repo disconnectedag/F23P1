@@ -45,20 +45,42 @@ public class SemManagerTest extends TestCase {
     /**
      * Test if the Stream is interpreted Correctly
      */
+    @SuppressWarnings("static-access")
     public void testInterpretStream() 
     {
         String correctOut = "";
         try 
         {
             correctOut = new String(Files.readAllBytes(Paths
-                .get("SampleOutput.txt")));
+                .get("P1Sample_output_1.txt")));
         }
         catch (IOException e) 
         {
             e.printStackTrace();
         }
         SemManager manager = new SemManager();
-        String[] sampleArgs = {"512", "4", "SampleInput.txt"};
+        String[] sampleArgs = {"512", "4", "P1Sample_input_1.txt"};
+        manager.main(sampleArgs);
+        assertEquals(correctOut, outContent.toString());
+    }
+    /**
+     * Test if the Stream is interpreted Correctly
+     */
+    @SuppressWarnings("static-access")
+    public void testInterpretStream1() 
+    {
+        String correctOut = "";
+        try 
+        {
+            correctOut = new String(Files.readAllBytes(Paths
+                .get("P1Sample_output2.txt")));
+        }
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+        SemManager manager = new SemManager();
+        String[] sampleArgs = {"64", "4", "P1Sample_input_1.txt"};
         manager.main(sampleArgs);
         assertEquals(correctOut, outContent.toString());
     }
@@ -66,6 +88,7 @@ public class SemManagerTest extends TestCase {
     /**
      * test the stream again
      */
+    @SuppressWarnings("static-access")
     public void testInterpretStream2() 
     {
         String correctOut = "";
