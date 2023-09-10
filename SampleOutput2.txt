@@ -79,10 +79,8 @@ Hashtable:
 7: TOMBSTONE
 total records: 4
 Freeblock List:
-256: 0 768 1024
-512: 1536
-256: 2304
-512: 2560
+256: 0 768 1024 2304
+512: 1536 2560
 1024: 3072
 Hash table expanded to 16 records
 Successfully inserted record with ID 11
@@ -111,11 +109,9 @@ Hashtable:
 12: 12
 total records: 4
 Freeblock List:
-256: 0
+256: 0 2816
 512: 512
-1024: 1024
-256: 2816
-1024: 3072
+1024: 1024 3072
 Memory pool expanded to 8192 bytes
 Successfully inserted record with ID 13
 ID: 13, Title: Software Engineering Seminar
@@ -141,14 +137,9 @@ Hashtable:
 13: 13
 total records: 5
 Freeblock List:
-256: 0
-512: 512
-1024: 1024
-256: 2816
-1024: 3072
-256: 4352
-512: 4608
-1024: 5120
+256: 0 2816 4352
+512: 512 4608
+1024: 1024 3072 5120
 2048: 6144
 Successfully inserted record with ID 14
 ID: 14, Title: Distributed Systems Conference
@@ -181,13 +172,7 @@ Hashtable:
 15: 15
 total records: 3
 Freeblock List:
-256: 0
-512: 512
-1024: 1024
-256: 2304
-512: 2560
-1024: 3072
-512: 4096
-256: 4864
-1024: 5120
+256: 0 2304 4864
+512: 512 2560 4096
+1024: 1024 3072 5120
 2048: 6144

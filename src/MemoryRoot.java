@@ -9,6 +9,7 @@
 public class MemoryRoot 
 {
     private MemoryNode head;
+    private StringAssist strHelp;
     
     /**
      * constructor
@@ -16,6 +17,7 @@ public class MemoryRoot
      */
     public MemoryRoot(int size) 
     {
+        strHelp = new StringAssist();
         head = new MemoryNode(size, 0);
     }
     
@@ -32,7 +34,8 @@ public class MemoryRoot
      * deletes data
      * @param location to delete
      */
-    public void deleteData(int location) {
+    public void deleteData(int location) 
+    {
         MemoryNode nodeToRemove = getNodeAtLocation(location);
         // can't ever be head
         nodeToRemove.getParent().abortChild(nodeToRemove); 
@@ -153,38 +156,8 @@ public class MemoryRoot
     {
         String strOfPool = head.toString();
         String val = "Freeblock List:";
-        val += head.toString().length() > 0 ? toStringHelper(strOfPool) : 
+        val += head.toString().length() > 0 ? strHelp.toStringHelper(strOfPool) : 
             "\nThere are no freeblocks in the memory pool";
         return val;
     }
-
-    /**
-     * this method will take the string, and append the list
-     * @param printout is printout
-     * @return is a string
-     */
-    private String toStringHelper(String printout) 
-    {
-        // newline character followed by previous key
-        // regex set up for key1: val1\nkey2: val\ns
-        String output = "";
-        String prevKey = null;
-        String[] lines = printout.split("\n");
-        // System.out.println(Arrays.toString(lines));
-        for (String line : lines) {
-            if (!line.contains(":")) {
-                continue;
-            }
-            String[] tuple = line.split(": ");
-            if (tuple[0].equals(prevKey)) {
-                output += " " + tuple[1];
-                continue;
-            }
-            output += "\n" + line;
-            prevKey = tuple[0];
-        }
-        output = "\n" + output.trim();
-        return output;
-    }
-
 }
